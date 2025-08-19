@@ -1,81 +1,66 @@
 
-**                 Readme realizado por Jorge Herraiz Soler                   **
+** Readme realizado por Jorge Herraiz Soler                 **
 
-# **_GymFlow_**
+# **_Control de Clientes_**
 
+---
 
-##    ¿Por que? 
+##    ¿Por qué?
 
-El propósito principal de la aplicación GymTrack Management System es proveer una solución integral y moderna para la 
-gestión de gimnasios, optimizando las operaciones diarias y mejorando el control sobre la base de clientes. 
-La aplicación permite a los administradores registrar, actualizar y consultar de forma eficiente la información de cada 
-cliente, incluyendo sus datos personales, cantidad de cada membresia membresías. Al combinar un potente backend con 
-tecnologías de vanguardia como Spring Boot y MySQL con un frontend web dinámico y elegante construido con JSF 
-y PrimeFaces, la aplicación no solo asegura la integridad de los datos, sino que también ofrece una experiencia de 
-usuario superior, facilitando la administración del gimnasio y el seguimiento de los socios de manera profesional y efectiva.
+El propósito de esta aplicación web es proveer una solución robusta y moderna para la gestión de clientes. Combina un potente backend desarrollado con **Spring Boot** y **MySQL** con un frontend dinámico y visualmente atractivo construido con **Thymeleaf** y librerías como **Bootstrap y Font Awesome**.
 
-##   Tecnologias
+La aplicación no solo permite registrar, actualizar y consultar la información de cada cliente, sino que también incluye características avanzadas como la **internacionalización** en múltiples idiomas y una gestión de seguridad integral con **roles de usuario**. Esto asegura que solo los usuarios autorizados puedan editar y eliminar datos, garantizando la integridad de la información. La combinación de estas tecnologías y funcionalidades ofrece una experiencia de usuario superior, facilitando la administración de la base de clientes de forma profesional y efectiva.
 
-Frontend (Interfaz de Usuario Web)
+---
 
-* JSF (JavaServer Faces): Framework de componentes de interfaz de usuario. Los archivos .xhtml son la base de la interfaz de usuario.
-* PrimeFaces: Es una librería de componentes JSF que proporciona widgets interactivos y un diseño moderno para la interfaz del gimnasio.
-* HTML, CSS, JavaScript: Las tecnologías web estándar subyacentes que JSF y PrimeFaces utilizan para renderizar la interfaz en el navegador.
+##    Tecnologías
 
+### Frontend (Interfaz de Usuario Web)
 
-Backend (Lógica de Negocio y Persistencia)
+* **Thymeleaf:** Motor de plantillas que permite generar páginas web dinámicas desde el servidor.
+* **Bootstrap 5:** Framework de CSS utilizado para crear un diseño moderno y totalmente responsivo.
+* **Font Awesome:** Librería de íconos que enriquece la interfaz de usuario con elementos visuales.
+* **Webjars:** Para la gestión de dependencias frontend como Bootstrap y Font Awesome de manera eficiente en un proyecto Java.
 
-* Spring Boot: Framework principal de la aplicación Java, que gestiona el arranque, la configuración y el despliegue del sistema.
-* JPA (Java Persistence API): Utilizado para la capa de persistencia, facilitando la conexión y las operaciones con la base de datos de clientes.
-* MySQL: La base de datos relacional donde se almacena toda la información del gimnasio.
-* Lombok: Una librería que reduce el código repetitivo en las clases Java, como la creación de getters y setters.
-* Tomcat: El servidor web embebido que Spring Boot utiliza por defecto para alojar y ejecutar la aplicación web, sirviendo
-  las páginas y gestionando las peticiones HTTP.
+### Backend (Lógica de Negocio y Persistencia)
 
-##  Procedimiento para iniciar desde cero este proyecto fullstack Sistemas de tareas.
+* **Spring Boot:** Framework principal de la aplicación Java que gestiona el arranque, la configuración y el despliegue del sistema de manera sencilla.
+* **Spring Boot Starter Data JPA:** Facilita la implementación de la capa de persistencia y la conexión con la base de datos.
+* **MySQL Connector/J:** Driver oficial para la conexión con la base de datos MySQL.
+* **Spring Boot Starter Validation:** Para la validación de los datos de entrada en el servidor, asegurando la integridad de la información.
+* **Lombok:** Una librería que reduce la cantidad de código repetitivo en las clases Java, como la creación de getters, setters y constructores.
+* **Spring Boot Starter Security:** Provee seguridad integral para la aplicación, manejando la autenticación y la autorización.
+* **Thymeleaf Extras Spring Security 6:** Permite la integración de las etiquetas de seguridad de Spring en las plantillas de Thymeleaf.
 
+---
 
-### REQUERIMIENTOS  TECNICOS  Y  PRACTICOS
+##    Procedimiento para iniciar desde cero este proyecto fullstack
 
-1. Tener IntelliJ IDEA 2023.3.4 (Community Edition)
-   Runtime version: 17.0.10+1-b1087.17 amd64
-   VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o.
-   Lombook Plugin (233.14475.39)
- 
-2. Tener instalado el SDK java -  21 Oracle OpenJDK version 21.0.7
+### REQUERIMIENTOS  TÉCNICOS  Y  PRÁCTICOS
 
+1.  Tener **NetBeans IDE** (versión reciente recomendada).
+2.  Tener instalado el SDK de Java - **OpenJDK version 21**.
 
+### PROCEDIMIENTO   START    PROYECT    FULLSTACK
 
-### PROCEDIMIENTO  START   PROYECT   FULLSTACK   SISTEMA DE TAREAS 
+1.  Tener instalado **MySQL Workbench** (versión reciente).
 
-1. Tener instalado MySQL Workbench 8.0.42  (Community Version)
+2.  Dentro de MySQL Workbench, crear un Schema con el nombre `test`.
 
-2. Dentro de MySQL Workbench crear Schema con el nombre zona_fit_db
+3.  Importar la base de datos dentro de Documentation se encuentra importarBD_test.  
+    Dentro de MySQL Workbench, en `Server > Data Import`, seleccionar la carpeta 
+    que contenga el archivo de la base de datos e importar.
 
-3. Dentro de MySQL Workbench en Server > Data Import  seleccionar la carpeta que esta en Documentation que se llama importarBD_zonaFit y darle a importar
+4.  En NetBeans, abrir el proyecto y verificar que las dependencias de Maven se 
+    hayan descargado correctamente.
 
-4. En IntelliJ IDEA tenemos 3 archivos
-   
-   - ZonaFitConsole   (Version Consola)
-     + Descomentar @SpringBootApplication en la clase ZonaFitConsole
-     + Comentar @SpringBootApplication en la clase ZonaFitSwing y comentar @Component en la linea 16 de la clase ZonaFitForma
-     + Comentar @SpringBootApplication en la clase ZonaFitWeb
-     
-   - ZonaFitSwing     (Version Desktop)
-     + Descomentar @SpringBootApplication en la clase ZonaFitSwing
-     + Descomentar linea 16 de la clase ZonaFitForma  @Component
-     + Comentar @SpringBootApplication en la clase ZonaFitConsole
-     + Comentar @SpringBootApplication en la clase ZonaFitWeb
-     
-   - ZonaFitWeb       (Version Web)
-     + Descomentar @SpringBootApplication en la clase ZonaFitWeb
-     + Comentar @SpringBootApplication en la clase ZonaFitSwing y comentar @Component en la linea 16 de la clase ZonaFitForma
-     + Comentar @SpringBootApplication en la clase ZonaFitConsole
-     
-     Acceso por URL en el navegador =  http://localhost:8080/index.xhtml
-    
-     Seleccionas un archivo el que quieras ejecutar y lanzar, descomentas @SpringBootApplication y 
-     en los otros dos archivos tiene que estas comentado @SpringBootApplication y despues ejecutar la clase (darle a run()) 
+5.  Ajustar la configuración de la base de datos en el archivo `application.properties`
+    para que coincida con tus credenciales de MySQL.
 
-   ** Esto se realiza para que sepa que es lo que tiene que ejecutar como una aplicacion si no dará error.
-  
+6.  Ejecutar la clase principal de la aplicación gm/HolaSpringApplication.java
+    (la que contiene la anotación `@SpringBootApplication`).
+
+7.  Acceder a la aplicación desde tu navegador: `http://localhost:8080/login`
+
+**Nota:** La aplicación cuenta con un sistema de seguridad y roles. Si intentas acceder a las páginas protegidas, se te redirigirá a la página de inicio de sesión.
+En la tabla usuario tienes el nombre de usuario las contraseñas son 123 
