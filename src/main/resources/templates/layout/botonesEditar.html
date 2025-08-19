@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3" sec:authorize="hasRole('ROLE_ADMIN')">
-                            <a href="@{/}" class="btn btn-light w-100">
+                            <a th:href="@{/}" class="btn btn-light w-100">
                                 <i class="fas fa-arrow-left"></i> [[#{accion.volver}]]
                             </a>
                         </div>
