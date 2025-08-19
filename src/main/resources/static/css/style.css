@@ -1,0 +1,349 @@
+
+/* Estilos generales del body (opcional, para una mejor visualización) */
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex; /* Convierte el body en un contenedor flexbox */
+    flex-direction: column; /* Organiza los elementos hijos en una columna */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% del alto de la ventana */
+}
+
+
+.content-wrap {
+    flex: 1; /* Esto es clave: este contenedor crecerá y ocupará todo el espacio vertical disponible, empujando el footer hacia abajo */
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 60px;
+    margin-top: 70px;
+}
+
+h2{
+    margin-top: 150px;
+}
+
+/* Estilos para el enlace "Registrar Persona" (como un botón) */
+.boton-registrar {
+    display: inline-block; /* Para que puedas aplicar padding y margin */
+    background-color: #006600; /* Verde */
+    color: white;
+    padding: 7px 12px;
+    border-radius: 100px;
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bolder;
+    font-family: sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-left: 77%;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+    
+}
+
+.boton-registrar:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+}
+
+/* Estilos para la tabla */
+table {
+    width: 80%; /* Ancho de la tabla */
+    border-collapse: collapse; /* Elimina el espacio entre los bordes de las celdas */
+    margin: 20px auto; /* Centra la tabla y le da un margen vertical */
+    margin-top: 0px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto 3D */
+    background-color: white;
+    text-align: center;
+}
+
+/* Estilos para los encabezados de la tabla */
+th {
+    background-color: #007bff; /* Azul */
+    color: white;
+    padding: 12px 15px;
+    border: 1px solid #0056b3; /* Borde más oscuro */
+}
+
+/* Estilos para las celdas de la tabla */
+td {
+    padding: 10px 15px;
+    border: 1px solid #ddd; /* Borde más claro */
+    text-align: center;
+}
+
+/* Estilos para filas impares (efecto cebra) */
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Gris claro */
+}
+
+/* Estilos para las filas al pasar el ratón (hover) */
+tbody tr:hover {
+    background-color: #e9ecef; /* Gris un poco más oscuro al pasar el ratón */
+}
+
+/* Centrar las celdas de Editar/Eliminar */
+td:nth-child(5), /* Columna Editar */
+td:nth-child(6) {  /* Columna Eliminar */
+    text-align: center;
+}
+
+
+/* Estilos para los enlaces dentro de la tabla (Editar/Eliminar) */
+.boton-tabla {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo específico para el botón de Editar */
+.boton-tabla {
+    background-color: #fff200; /* Azul */
+    color: black;
+    border: 1px solid  #000000;
+}
+
+.boton-tabla:hover {
+    background-color: #b7b717; /* Azul más oscuro */
+    border-color: #0056b3;
+}
+
+/* Estilo específico para el botón de Eliminar */
+.boton-tabla.boton-eliminar { /* Usa .boton-tabla.boton-eliminar para mayor especificidad */
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border: 1px solid #dc3545;
+    margin-left: 5px; /* Pequeño margen entre Editar y Eliminar */
+}
+
+.boton-tabla.boton-eliminar:hover {
+    background-color: #c82333; /* Rojo más oscuro */
+    border-color: #c82333;
+}
+
+/* Estilos para el contenedor del encabezado */
+.header-container {
+    display: flex; /* Usa flexbox para alinear los elementos en una fila */
+    justify-content: space-between; /* Mueve el primer elemento (título) a la izquierda y el último (logout) a la derecha */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 15px 20px; /* Espaciado interno */
+    background-color: #333; /* Color de fondo del encabezado */
+    color: white; /* Color de texto predeterminado para el encabezado */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Estilo para el título del encabezado */
+.header-title {
+    margin: 0 auto; /* Quita el margen por defecto del h1 */
+    margin-left: 45%;
+    font-size: 2em; /* Tamaño de fuente del título */
+    color: #f8f8f8; /* Color del texto del título */
+}
+
+/* Estilo para el botón de Logout */
+.logout-button {
+    background-color: #5cb85c; /* Un verde vibrante para el botón, puedes cambiarlo */
+    color: white; /* Texto blanco en el botón */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Relleno del botón */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+    font-size: 1em; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+.logout-button:hover {
+    background-color: #4cae4c; /* Un verde más oscuro al hacer hover */
+}
+
+/* Estilos para el selector de idioma en el footer (ya los teníamos o similares) */
+.language-switcher a {
+    color: white; /* Color blanco para los enlaces de idioma */
+    text-decoration: none;
+    padding: 0 5px; /* Pequeño espaciado */
+}
+
+.language-switcher a:hover {
+    color: lightblue; /* Azul claro al hacer hover */
+    text-decoration: underline;
+}
+
+/* Asegúrate de que el footer también tenga un fondo para que los enlaces se vean */
+
+
+/* Puedes añadir un estilo general para el body para un fondo o fuente predeterminados */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Un gris claro para el fondo de la página 
+}
+
+/* Estilos para el footer (si lo tienes) */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* Espacio por encima del footer */
+    background-color: #343a40; /* Fondo oscuro */
+    color: #e9ecef; /* Texto claro */
+    font-size: 0.9em;
+    border-top: 1px solid #495057; 
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+footer a:hover {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+/* ======================================================================= */
+/* --- ESTILOS ESPECÍFICOS PARA EL FORMULARIO (modificar.html) --- */
+/* ======================================================================= */
+
+/* Estilos del enlace "Volver" en el formulario */
+.volver-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.volver-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Contenedor principal del formulario */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto; /* Centra el formulario */
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Desactivar text-align: center si lo hereda de .content-wrap y no lo quieres */
+    text-align: left; /* Asegura que el contenido del formulario esté alineado a la izquierda */
+}
+
+/* Estilos para cada grupo de formulario (label + input) */
+.person-form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center; /* Alinea label e input verticalmente */
+}
+
+/* Estilos para las etiquetas del formulario */
+.person-form label {
+    flex-basis: 120px; /* Ancho fijo para las etiquetas */
+    margin-right: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilos para los campos de entrada */
+.person-form input[type="text"],
+.person-form input[type="email"],
+.person-form input[type="tel"] {
+    flex-grow: 1; /* Permite que los inputs ocupen el espacio restante */
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-form input[type="text"]:focus,
+.person-form input[type="email"]:focus,
+.person-form input[type="tel"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Estilos para los mensajes de error de validación */
+.error-message {
+    color: #dc3545; /* Rojo para mensajes de error */
+    font-size: 0.85em;
+    margin-left: 15px; /* Espacio a la izquierda del input */
+    /* flex-basis: 150px; /* Puedes ajustar este ancho si tus mensajes son muy largos */
+}
+
+/* Estilos para el botón "Guardar" del formulario */
+.boton-guardar {
+    display: block;
+    width: 30%;
+    padding: 12px 20px;
+    background-color: #28a745; /* Verde, igual que boton-registrar */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+    margin-top: 20px;
+    
+}
+
+.boton-guardar:hover {
+    background-color: #218838;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .content-wrap {
+        padding: 10px;
+    }
+    
+    .form-container {
+        margin: 0 auto; /* Asegura que se centre en pantallas pequeñas */
+        padding: 20px;
+    }
+
+    .person-form .form-group {
+        flex-direction: column; /* Apila label e input verticalmente en pantallas pequeñas */
+        align-items: flex-start;
+    }
+
+    .person-form label,
+    .error-message {
+        flex-basis: auto;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .error-message {
+        margin-left: 0;
+    }
+
+    table {
+        width: 100%; /* La tabla ocupa todo el ancho disponible en móviles */
+        margin: 10px 0;
+    }
+
+    th, td {
+        padding: 8px 10px; /* Menos padding en celdas para móviles */
+        font-size: 0.9em;
+    }
+}
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="head_login">
+        <title>Login</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="/css/login-style.css"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <header th:fragment="header_login">
+            <section id="main-header" class="py-2 text-white">
+                <div class="container">
+                    <div class="row">
+                        <div >
+                            <h1 id="tituloLogin">
+                                <i class="fas fa-cog"></i> [[#{plantilla.titulo}]]
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <footer th:fragment="footer">
+            <div class="language-switcher">
+                <a th:href="@{/login(lang=es_ES)}">ES</a> |
+                <a th:href="@{/login(lang=en_US)}">US</a> |
+                <a th:href="@{/login(lang=en_IE)}">IE</a> |
+                <a th:href="@{/login(lang=fr_FR)}">FR</a> |
+                <a th:href="@{/login(lang=it_IT)}">IT</a> |
+                <a th:href="@{/login(lang=de_DE)}">DE</a> |
+                <a th:href="@{/login(lang=zh_CN)}">ZH_CN</a> |
+                <a th:href="@{/login(lang=ja_JP)}">JA</a>
+            </div>
+            <br/>
+             <span>[[#{plantilla.pie-pagina}]] &copy; Jorge Herraiz Soler </span>
+        </footer>
+
+    </body>
+</html>

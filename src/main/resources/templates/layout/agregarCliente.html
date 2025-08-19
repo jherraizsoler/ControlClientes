@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title th:text="#{accion.agregar}">Agregar Cliente</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <section th:fragment="agregarCliente">
+            <div id="agregarCliente" class="modal fade" tabindex="-1"
+                 aria-labelledby="agregarClienteLabel" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title w-100 text-center" id="agregarClienteLabel" th:text="#{accion.agregar}">Agregar Cliente</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form th:action="@{/guardar}" th:object="${persona}"
+                              method="post" class="was-validated">
+                            <div class="modal-body px-4">
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label text-start"
+                                           th:text="#{persona.dato.nombre}">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre"
+                                           required="true"/>
+                                    <div class="invalid-feedback text-start" th:text="#{requerido.persona.nombre}">
+                                        Nombre es requerido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="apellido" class="form-label text-start"
+                                           th:text="#{persona.dato.apellido}">Apellido</label>
+                                    <input type="text" class="form-control" name="apellido"
+                                           required="true"/>
+                                    <div class="invalid-feedback text-start" th:text="#{requerido.persona.apellido}">
+                                        Apellido es requerido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label text-start"
+                                           th:text="#{persona.dato.email}">Email</label>
+                                    <input type="email" class="form-control" name="email"
+                                           required="true"/>
+                                    <div class="invalid-feedback text-start" th:text="#{requerido.persona.email}">
+                                        Email es requerido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label text-start"
+                                           th:text="#{persona.dato.telefono}">Teléfono</label>
+                                    <input type="tel" class="form-control" name="telefono"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="saldo" class="form-label text-start"
+                                           th:text="#{persona.dato.saldo}">Saldo</label>
+                                    <input type="number" class="form-control" name="saldo"
+                                           required="true" step="any"/>
+                                    <div class="invalid-feedback text-start" th:text="#{requerido.persona.saldo}">
+                                        Saldo es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal"
+                                        th:text="#{accion.cerrar}">Cerrar</button>
+                                <button type="submit" class="btn btn-primary"
+                                        th:text="#{accion.guardar}">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

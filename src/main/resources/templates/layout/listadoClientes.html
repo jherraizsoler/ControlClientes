@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Listado Clientes</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <section th:fragment="listadoClientes" id="clientes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{persona.titulo-list}]]</h4>
+                            </div>
+                            <div th:if="${personas != null and !personas.empty}">
+                                <table class="table table-striped">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th th:text="#{persona.dato.nombre}"/>
+                                            <th th:text="#{persona.dato.saldo}"/>
+                                            <th sec:authorize="hasRole('ROLE_ADMIN')"/>
+                                            <th sec:authorize="hasRole('ROLE_ADMIN')"/>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr th:each="persona, contador : ${personas}">
+                                            <td>[[${contador.count}]]</td>
+                                            <td>[[${persona.nombre} + ' ' + ${persona.apellido}]] </td>
+                                            <td>[[${#numbers.formatCurrency(persona.saldo)}]]</td>
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <a th:href="@{/editar/} + ${persona.idPersona}"
+                                                   class="btn btn-warning">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
+                                                </a>
+                                            </td>
+                                            <td sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <a th:href="@{/eliminar/} + ${persona.idPersona}" 
+                                                    class="btn btn-danger">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                            <div th:if="${personas == null or personas.empty}" 
+                                 th:text="#{persona.listavacia}">
+                            </div>
+                            <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}" class="btn btn-success btn-ln d-block mx-auto mb-2" th:text="#{accion.registrar}"/>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center mb-3 bg-danger text-white">
+                            <div class="card-body">
+                                <h3 th:text="#{persona.saldoTotal}">Saldo total</h3>
+                                <h4 class="display-4">[[${#numbers.formatCurrency(saldoTotal)}]]</h4>
+                            </div>
+                        </div>
+
+                        <div class="card text-center bg-success text-white mb-3">
+                            <div class="card-body">
+                                <h3 th:text="#{persona.totalClientes}">Total Clientes</h3>
+                                <h4 class="display-4">
+                                    <i class="fas fa-users"></i>[[${totalClientes}]]
+                                </h4>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

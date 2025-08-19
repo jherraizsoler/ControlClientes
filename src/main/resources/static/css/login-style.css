@@ -1,0 +1,198 @@
+
+/* ======================================================================= */
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE LOGIN (login.html) --- */
+/* ======================================================================= */
+
+
+/* Estilos generales del cuerpo */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mantiene el encabezado arriba y el footer abajo */
+    align-items: center; /* Centra el contenido horizontalmente (el login-container) */
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Contenedor principal del login */
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    /* Aumentado de 400px a 500px. Ajusta este valor si aún lo ves pequeño. */
+    max-width: 500px;
+    text-align: center;
+    box-sizing: border-box;
+
+    /* --- CAMBIOS CLAVE PARA EL POSICIONAMIENTO VERTICAL --- */
+    /* Define un margen superior fijo para empujar el contenedor hacia abajo desde el encabezado.
+       Ajusta este valor (ej. 50px, 80px, 100px) hasta que te guste la posición. */
+    margin-top: 80px; /* Prueba con este valor inicial */
+    /* Este margin-bottom: auto; se encargará de empujar el resto del espacio hacia abajo,
+       asegurando que el footer se mantenga en la parte inferior de la pantalla. */
+    margin-bottom: auto;
+    /* --- FIN DE CAMBIOS --- */
+}
+
+/* Título del login (si es un elemento separado del login-container y es el primer hijo del body) */
+#main-header {
+    /* Si este margen es parte del problema de que el login está "arriba", podrías reducirlo */
+    margin-top: 120px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+}
+
+#tituloLogin{
+    color: white;
+    font-size: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+/* Footer (para asegurar que se pegue al fondo y no ocupe todo el ancho) */
+body > footer {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    width: auto;
+    /* Dale un max-width similar al login-container para que no se estire del todo */
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Espacio entre el login-container y el footer */
+    margin-bottom: 0; /* Quita el espacio inferior */
+}
+
+
+
+
+
+
+
+
+
+
+/* Formulario */
+.login-form {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    gap: 20px; /* Espacio entre grupos de formulario */
+}
+
+/* Grupo de formulario (label + input) */
+.form-group {
+    margin-bottom: 15px; /* Ya estaba en el CSS de login */
+    display: flex;
+    align-items: center; /* Alinea label e input verticalmente */
+    flex-wrap: wrap;
+}
+
+/* Etiquetas */
+.form-label {
+    display: block; /* Cada label en su propia línea */
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+/* Etiquetas - ADAPTADO DE modificar.html */
+.login-form .form-label { /* Aseguramos que solo aplique a los form-label dentro de login-form */
+    flex-basis: 120px; /* Ancho fijo para las etiquetas */
+    margin-right: 15px;
+    font-weight: bold;
+    color: #555;
+    text-align: left; /* Alinea el texto de la etiqueta a la izquierda */
+    display: block; /* Asegura que la etiqueta esté en su propia línea si flex-basis la hace ancha */
+}
+
+/* Campos de entrada - ADAPTADO DE modificar.html */
+.login-form .form-input { /* Aseguramos que solo aplique a los form-input dentro de login-form */
+    flex-grow: 1; /* Permite que los inputs ocupen el espacio restante */
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Crucial para el padding */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form .form-input:focus {
+    border-color: #007bff; /* Azul de tus formularios */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Botón de envío - ADAPTADO DE boton-guardar */
+.login-button {
+    display: block;
+    width: 60%; /* Ajusta el ancho, 100% podría ser demasiado */
+    max-width: 250px; /* Ancho máximo para que no se vea gigante */
+    padding: 12px 20px;
+    background-color: #28a745; /* Verde, igual que tu boton-guardar */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px auto 0 auto; /* Centra el botón y le da margen superior */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
+}
+
+.login-button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+.login-button:active {
+    transform: translateY(0); /* Vuelve a la posición original al hacer clic */
+}
+
+body > footer {
+    background-color: rgba(255, 255, 255, 0.15); /* Un fondo blanco semi-transparente */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque detrás del footer */
+    -webkit-backdrop-filter: blur(8px); /* Prefijo para navegadores basados en WebKit (ej. Chrome, Safari) */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Un borde sutil para definir el efecto */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+
+    color: white; /* Color del texto blanco */
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 100%; /* Ajusta el ancho para que no ocupe toda la pantalla */
+    box-sizing: border-box;
+    margin-top: 20px; /* Espacio superior si es necesario */
+    margin-bottom: 20px; /* Espacio inferior para que no pegue al borde */
+}
+
+/* Estilos para los enlaces de idioma dentro del footer del login */
+body > footer .language-switcher a {
+    color: white; /* Enlaces blancos */
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bolder;
+    padding: 0 5px;
+}
+
+body > footer .language-switcher a:hover {
+    color: lightblue;
+    text-decoration: underline;
+}
+
+/* Estilo para el texto del pie de página dentro del footer del login */
+body > footer a {
+    color: white; /* Texto blanco para los derechos reservados */
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Editar Cliente</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="editarCliente">
+            <h2 class="section-title" th:text="#{plantilla.subtitulo.modificar}"/>
+            <form th:action="@{/guardar}" method="post" th:object="${persona}" class="was-validated">
+                <input type="hidden" name="idPersona" th:field="*{idPersona}" />
+                <section th:replace="layout/botonesEditar :: botonesEditar"></section>
+
+                <div id="details"> 
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>[[#{accion.editar}]]</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="nombre">[[#{persona.dato.nombre}]]</label>
+                                            <input type="text" class="form-control" name="nombre" 
+                                                   required="true" th:field="*{nombre}"/>
+                                            <span th:if="${#fields.hasErrors('nombre')}"
+                                                  th:errors="*{nombre}" class="error-message">
+                                                Error Nombre
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="apellido">[[#{persona.dato.apellido}]]</label>
+                                            <input type="text" class="form-control" name="apellido" 
+                                                   required="true" th:field="*{apellido}"/>
+                                            <span th:if="${#fields.hasErrors('apellido')}"
+                                                  th:errors="*{apellido}" class="error-message">
+                                                Error Apellido
+                                            </span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="email">[[#{persona.dato.email}]]</label>
+                                            <input type="email" class="form-control" name="email" 
+                                                   required="true" th:field="*{email}"/>
+                                            <span th:if="${#fields.hasErrors('email')}"
+                                                  th:errors="*{email}" class="error-message">
+                                                Error Email
+                                            </span>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="telefono">Telefono</label>
+                                            <input type="tel" class="form-control" name="telefono" 
+                                                   th:field="*{telefono}"/>
+                                            <span th:if="${#fields.hasErrors('telefono')}"
+                                                  th:errors="*{telefono}" class="error-message">
+                                                Error Telefono
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="saldo">[[#{persona.dato.saldo}]]</label>
+                                            <input type="number" class="form-control" name="saldo" 
+                                                   required="true" th:field="*{saldo}" step="any"/>
+                                            <span th:if="${#fields.hasErrors('saldo')}"
+                                                  th:errors="*{saldo}" class="error-message">
+                                                Error saldo
+                                            </span>
+                                        </div>
+                                        
+                                        <input type="submit" name="guardar" th:value="#{accion.guardar}" class="boton-guardar" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </form>
+            <a th:href="@{/}" class="volver-link" th:text="#{accion.volver}"/>
+        </section>
+    </body>
+</html>
+
+

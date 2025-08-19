@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="layout/plantilla_login :: head_login">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla_login :: header_login"></header>
+        
+        
+        <div class="login-container">
+            <h1 class="login-title" th:text="#{logging.titulo}"></h1>
+
+            <form method="POST" th:action="@{/login}" class="login-form">
+                <div class="form-group">
+                    <label for="username" class="form-label" th:text="#{logging.usuario}"></label>
+                    <input type="text" name="username" id="username" class="form-input" th:placeholder="#{logging.placeholder.usuario}"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label" th:text="#{logging.contraseña}"></label>
+                    <input type="password" name="password" id="password" class="form-input" th:placeholder="#{logging.placeholder.contraseña}"/>
+                </div>
+
+                <button type="submit" class="login-button" th:text="#{logging.botonEntrar}"/>
+            </form>
+        </div> 
+        <footer th:replace="layout/plantilla_login :: footer"></footer>
+    </body>
+</html>
